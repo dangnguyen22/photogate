@@ -1,0 +1,96 @@
+allWidths: [1200]
+widthHeightRatio: 1.7778
+backgroundColor: fff
+#Draw order: pictures > frame > texts
+plugins:
+# first pic on the left
+- type: image
+  imgtype: product
+  mode: clip
+  halign: left_margin
+  width: 500
+  height: 500
+  x: 55
+  y: -45
+  binding:
+    image: img_source1
+# 2nd pic on the right
+- type: image
+  imgtype: product
+  mode: clip
+  halign: right_margin
+  width: 500
+  height: 500
+  x: 55
+  y: -45
+  binding:
+    image: img_source2
+# overall frame
+- type: image
+  image: generic-templates/images/sendofarm-chia-se-danh-muc.png
+  halign: center
+  valign: bottom
+
+- type: text # promotion price integer part
+  x: 45
+  y: 625
+  color: '#EE2624'
+  fontUri: ./static/fonts/Roboto-Black.ttf
+  fontsize: 65
+  isInt: true
+  binding:
+    int_price: promotion_price1
+- type: text # promotion price decimal part
+  x: 45
+  y: 625
+  color: '#EE2624'
+  fontUri: ./static/fonts/Roboto-Black.ttf
+  fontsize: 48
+  isDec: true
+  binding:
+    decimal_price: promotion_price1
+    int_price: promotion_price1
+- type: text # original price
+  x: 45
+  y: 580
+  color: '#0F1E29'
+  fontUri: ./static/fonts/Roboto-Bold.ttf
+  fontsize: 35
+  strikeFull: true
+  isFromSfcsdm: true
+  binding:
+    price: price1
+    int_price: promotion_price1
+    promotion_price: promotion_price1
+
+- type: text # promotion price integer part
+  x: 630
+  y: 625
+  color: '#EE2624'
+  fontUri: ./static/fonts/Roboto-Black.ttf
+  fontsize: 65
+  isInt: true
+  binding:
+    int_price: promotion_price2
+- type: text # promotion price decimal part
+  x: 630
+  y: 625
+  color: '#EE2624'
+  fontUri: ./static/fonts/Roboto-Black.ttf
+  fontsize: 48
+  isDec: true
+  binding:
+    decimal_price: promotion_price2
+    int_price: promotion_price2
+- type: text # original price
+  x: 630
+  y: 580
+  color: '#0F1E29'
+  fontUri: ./static/fonts/Roboto-Bold.ttf
+  fontsize: 35
+  strikeFull: true
+  isFromSfcsdm: true
+  binding:
+    price: price2
+    int_price: promotion_price2
+    promotion_price: promotion_price2

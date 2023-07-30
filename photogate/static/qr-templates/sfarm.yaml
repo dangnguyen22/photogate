@@ -1,0 +1,20 @@
+allWidths: [256, 512]
+backgroundColor: fff
+
+plugins:
+- type: qr
+  size: 0.85
+  anchor:
+    x: 0.5
+    y: 0.5
+  recovery: 3
+  color: 000
+  binding:
+    text: qr_payload
+- type: image
+  image: qr-templates/images/sendofarm.png
+  rect:
+    left: 0.4
+    top: 0.4
+    right: 0.6
+    bottom: 0.6

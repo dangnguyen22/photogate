@@ -1,0 +1,16 @@
+allWidths: [600]
+# = 600/315
+widthHeightRatio: 1.9047
+backgroundColor: fff
+
+plugins:
+- type: image
+  mode: clip
+  halign: center
+  valign: middle
+  binding:
+    image: source
+- type: image
+  image: generic-templates/images/sendofarm-nong-san-sach.png
+  halign: center
+  valign: bottom

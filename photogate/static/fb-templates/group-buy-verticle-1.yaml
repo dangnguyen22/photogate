@@ -1,0 +1,24 @@
+frameURI: 2021-09/tXapokO13pmA69pjhMHy.png
+priceOnly:
+  top: 0.913
+  right: 0.13
+  verticalCenter: true
+  height: 0.042
+  fontUri: 2020-02/UTMAVO-BOLD.TTF
+  color: '#fffefe'
+priceOrig:
+  top: 0.88
+  right: 0.13
+  verticalCenter: true
+  height: 0.030
+  fontUri: 2020-02/UTMAVO-REGULAR.TTF
+  color: '#ffffff'
+  strikeThrough: 0.07
+  strikefull: true
+  strikepos: 0.55
+pricePromo:
+  top: 0.919
+  right: 0.13
+  verticalCenter: true
+  height: 0.050
+  color: '#fffefe'

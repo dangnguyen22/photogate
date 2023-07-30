@@ -1,0 +1,12 @@
+allWidths: [256, 512]
+backgroundColor: ccc
+
+plugins:
+- type: qr
+  size: 0.85
+  anchor:
+    x: 0.5
+    y: 0.5
+  recovery: 1
+  binding:
+    text: qr_payload

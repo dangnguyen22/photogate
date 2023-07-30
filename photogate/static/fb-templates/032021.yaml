@@ -1,0 +1,21 @@
+frameURI: 2021-03/frame1.png
+promoFrameURI: 2021-03/frame2.png
+priceOnly:
+  top: 0.922
+  right: 0.075
+  height: 0.044
+  color: '#e81816'
+  fontUri: 2020-02/UTMAVO-BOLD.TTF
+priceOrig:
+  top: 0.875
+  right: 0.072
+  height: 0.025
+  fontUri: 2020-02/UTMAVO-REGULAR.TTF
+  strikeThrough: 0.07
+  strikePos: 0.55
+  strikeFull: true
+pricePromo:
+  top: 0.922
+  right: 0.075
+  height: 0.044
+  color: '#e81816'

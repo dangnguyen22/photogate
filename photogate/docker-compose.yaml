@@ -1,0 +1,25 @@
+version: "2.4"
+
+services:
+  photogate:
+    image: photogate:dev
+    build: docker
+    volumes:
+      - ~/.gitconfig:/etc/gitconfig:ro
+      - ./:/src
+    command: sh -c "go run ."
+    ports:
+      - 8080:8080
+    environment:
+      HISTFILE: /src/.gopath/.bash_history
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+
+networks:
+  default:
+    name: iaas-console

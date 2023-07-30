@@ -1,0 +1,8 @@
+qr:
+  database:
+    driver: sqlite
+    dsn: "database.sql"
+  loglevel: debug
+  prefix: http://localhost:8080/qr/
+media3:
+  url: https://media3.scdn.vn/

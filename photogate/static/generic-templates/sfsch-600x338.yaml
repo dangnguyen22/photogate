@@ -1,0 +1,50 @@
+allWidths: [600]
+# = 600/338
+widthHeightRatio: 1.7751
+backgroundColor: fff
+
+plugins:
+- type: image
+  imgtype: product
+  mode: clip
+  halign: left_margin
+  valign: middle
+  width: 211
+  height: 211
+  x: 28
+  binding:
+    image: source
+- type: image
+  image: generic-templates/images/sendofarm-sap-chay-hang_600x338.png
+  halign: center
+  valign: bottom
+- type: text # product_name
+  x: 593
+  y: 94
+  color: '#3F4B53'
+  fontUri: ./static/fonts/Roboto-Bold.ttf
+  fontsize: 24
+  drawWrapped: true
+  linespacing: 1.5
+  textWidth: 343
+  maxCharacter: 55
+  binding:
+    text: product_name
+- type: text # promotion price
+  x: 255
+  y: 190
+  color: '#EE2624'
+  fontUri: ./static/fonts/Roboto-Black.ttf
+  fontsize: 36
+  binding:
+    promotion_price: promotion_price
+- type: text # original price
+  x: 326
+  y: 190
+  color: '#B7BBBF'
+  fontUri: ./static/fonts/Roboto-Regular.ttf
+  fontsize: 20
+  strikeFull: true
+  binding:
+    price: price
+    promotion_price: promotion_price

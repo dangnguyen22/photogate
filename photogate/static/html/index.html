@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test template - photogate</title>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <style type="text/css">
+
+#viewer.loading {
+  background: url(https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif) no-repeat center;
+}
+
+table td {
+  vertical-align: top;
+}
+
+table td.left-panel {
+  width: calc((100vw * 0.4));
+}
+table td.left-panel > * {
+  width: 100%;
+  margin-top: 8px;
+}
+
+table td.right-panel {
+  width: calc((100vw * 0.4));
+}
+table td.right-panel img {
+  max-width: 600px;
+  max-height: 600px;
+}
+
+table td.mid-panel {
+  vertical-align: middle;
+}
+
+table td.mid-panel * {
+  margin: 0 4px 0 10px;
+}
+table td.mid-panel div #testConfig {
+  display: block;
+  margin: 0 auto;
+}
+table td.mid-panel .content > div > * {
+  display: block;
+  margin: 0 auto;
+}
+
+  </style>
+
+</head>
+<body>
+  <div>
+    <table>
+      <tbody>
+        <tr>
+          <td class="left-panel">
+            <div>
+              <label for="base-template">Template:</label>
+              <select id="base-template" name="base-template"></select>
+            </div>
+            <label for="config">Test config:</label>
+            <textarea id="config" name="config" rows="20"></textarea>
+            <label for="source">Test image:</label>
+            <input type="text" id="source" name="source"
+              value="http://media3.scdn.vn/img4/2020/02_21/06FZjyboTMnucfDOVgHC_simg_de2fe0_500x500_maxb.jpg">
+          </td>
+          <td class="mid-panel">
+            <div class="content" style="display: block;">
+              <div>
+                <label for="price">Original Price:</label>
+                <input type="text" id="price" name="price" value="145000">
+              </div>
+              <div>
+                <label for="promotion_price">Promotion Price (can empty):</label>
+                <input type="text" id="promotion_price" name="promotion_price" value="125000">
+              </div>
+              <div>
+                <button id="testConfig">&gt;&gt;&gt;</button>
+              </div>
+            </div>
+          </td>
+          <td class="right-panel">
+            <img id="viewer">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="text/javascript">
+    $(function(){
+      $('#base-template').change(()=>{
+        let baseTmpl = $('#base-template').val()
+        if (baseTmpl === null) {
+          return
+        }
+
+        $.get(`${location.pathname}/get-config?template=${baseTmpl}`)
+          .then(r=>{
+            $('#config').val(r)
+          })
+          .catch(e=>{
+            $('#config').val(e.responseText)
+          })
+          .then(()=>{
+            $('#testConfig').click()
+          })
+      })
+
+      $.getJSON(`${location.pathname}/get-templates`)
+        .then(r=>{
+          r.sort().forEach(e=>{
+            $('#base-template').append(`<option value=${e}>${e}</option`)
+          })
+
+          $('#base-template').change()
+        })
+
+      $('#viewer').bind('error', e=>{
+        $('#viewer').removeClass('loading')
+      }).bind('load', e=>{
+        $('#viewer').removeClass('loading')
+      })
+
+      $('#testConfig').click(()=>{
+        let config = encodeURI($('#config').val()).replace(/#/g, '%23')
+        let src = $('#source').val()
+        let price = $('#price').val()
+        let promotion_price = $('#promotion_price').val()
+        $('#viewer').attr('src', ``)
+        $('#viewer').attr('src', `${location.pathname}/test-template?url=${src}&config=${config}&price=${price}&promotion_price=${promotion_price}&ts=${new Date().getTime()}`)
+        $('#viewer').addClass('loading')
+      })
+    })
+  </script>
+</body>
+</html>

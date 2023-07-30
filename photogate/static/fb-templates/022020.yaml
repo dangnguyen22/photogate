@@ -1,0 +1,17 @@
+frameURI: 2020-02/frame.png
+priceOnly:
+  top: 0.905
+  right: 0.075
+  height: 0.05
+  fontUri: 2020-02/UTMAVO-BOLD.TTF
+priceOrig:
+  top: 0.885
+  right: 0.072
+  height: 0.035
+  fontUri: 2020-02/UTMAVO-REGULAR.TTF
+  strikeThrough: 0.1
+  strikePos: 0.5
+pricePromo:
+  top: 0.92
+  right: 0.075
+  height: 0.04666667
